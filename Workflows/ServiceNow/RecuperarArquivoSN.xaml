@@ -1,0 +1,339 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="RecuperarInputSN" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ubac="clr-namespace:UiPath.BAF.Activities.ContextModel;assembly=UiPath.ServiceNow.Activities" xmlns:ubmr="clr-namespace:UiPath.BAF.Models.Response;assembly=UiPath.ServiceNow" xmlns:ubt="clr-namespace:UiPath.BAF.Telemetry;assembly=UiPath.ServiceNow" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usa="clr-namespace:UiPath.ServiceNow.Activities;assembly=UiPath.ServiceNow.Activities" xmlns:uss="clr-namespace:UiPath.ServiceNow.ServiceFactory;assembly=UiPath.ServiceNow" xmlns:uss1="clr-namespace:UiPath.ServiceNow.Service;assembly=UiPath.ServiceNow" xmlns:uss2="clr-namespace:UiPath.ServiceNow.Services;assembly=UiPath.ServiceNow" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_transactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property Name="out_caminhoArquivoInput" Type="OutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1523.3333333333333,2503.3333333333335</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>RecuperarInputSN_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Web</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.ServiceNow.Models</x:String>
+      <x:String>UiPath.BAF.Models.Connection.APIConnection</x:String>
+      <x:String>UiPath.BAF.Models.Connection</x:String>
+      <x:String>UiPath.BAF.Telemetry</x:String>
+      <x:String>UiPath.BAF.Activities.ContextModel</x:String>
+      <x:String>UiPath.BAF.Models</x:String>
+      <x:String>UiPath.BAF.ServiceInterfaces</x:String>
+      <x:String>UiPath.BAF.Models.Response</x:String>
+      <x:String>UiPath.ServiceNow.Activities</x:String>
+      <x:String>UiPath.BAF.Activities</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Web</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Python</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.ServiceNow</AssemblyReference>
+      <AssemblyReference>UiPath.ServiceNow.Activities</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="O arquivo não está vinculado a um ticket, fica armazenado no service now. A partir da propria url é possível obter o sys id.&#xA;&#xA;Padrão url recebida: https://stonedev.service-now.com/api/now/attachment/192920f91bf2b1904dde87bfe54bcbf4/file&#xA;&#xA;Sysid: 192920f91bf2b1904dde87bfe54bcbf4" DisplayName="RecuperarArquivoSN" sap:VirtualizedContainerService.HintSize="642.6666666666666,2438.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="username" />
+      <Variable x:TypeArguments="ss:SecureString" Name="password" />
+      <Variable x:TypeArguments="x:String" Name="clientId" />
+      <Variable x:TypeArguments="ss:SecureString" Name="clientSecret" />
+      <Variable x:TypeArguments="ubmr:ResponseStatus" Name="status" />
+      <Variable x:TypeArguments="x:String" Name="sysIdDocumento" />
+      <Variable x:TypeArguments="x:String" Name="urlArquivoSN" />
+      <Variable x:TypeArguments="x:String" Name="assetSn" />
+      <Variable x:TypeArguments="x:String" Name="assetApiSn" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message - Recuperar arquivo Snow" sap:VirtualizedContainerService.HintSize="580.6666666666666,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;[INICIO] RecuperarArquivoSN: recuperando arquivo de input do service now&quot;]" />
+    <Assign DisplayName="Assign - Url arquivo Snow" sap:VirtualizedContainerService.HintSize="580.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_6">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[urlArquivoSN]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[in_transactionItem.SpecificContent("ARQUIVO").ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign - Recuperar SysId do documento" sap:VirtualizedContainerService.HintSize="580.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[sysIdDocumento]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(urlArquivoSN, "(?&lt;=/attachment/)(.*?)(?=/file)").Value]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Switch x:TypeArguments="x:String" DisplayName="Switch - Recupera credenciais do service now de acordo com ambiente especificado" Expression="[in_config(&quot;ambienteDeExecucaoSN&quot;).ToString]" sap:VirtualizedContainerService.HintSize="580.6666666666666,530" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Sequence x:Key="dev" DisplayName="Credenciais ambiente de dev" sap:VirtualizedContainerService.HintSize="540.6666666666666,258.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_12">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:MultipleAssign DisplayName="Multiple Assign - nome do asset credencial dev" sap:VirtualizedContainerService.HintSize="478.6666666666667,170.66666666666666" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+          <ui:MultipleAssign.AssignOperations>
+            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[assetSn]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">serviceNowCredenciaisAPIDev_User_password</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[assetApiSn]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">serviceNowCredenciaisAPIDev</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+            </scg:List>
+          </ui:MultipleAssign.AssignOperations>
+        </ui:MultipleAssign>
+      </Sequence>
+      <Sequence x:Key="qa" DisplayName="Credenciais ambiente de qa" sap:VirtualizedContainerService.HintSize="540.6666666666666,258.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_13">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:MultipleAssign DisplayName="Multiple Assign - nome do asset credencial QA" sap:VirtualizedContainerService.HintSize="478.6666666666667,170.66666666666666" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+          <ui:MultipleAssign.AssignOperations>
+            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[assetSn]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">["serviceNowCredenciais"]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[assetApiSn]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">["serviceNowCredenciaisAPI"]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+            </scg:List>
+          </ui:MultipleAssign.AssignOperations>
+        </ui:MultipleAssign>
+      </Sequence>
+      <Sequence x:Key="prod" DisplayName="credenciais ambiente de prod" sap:VirtualizedContainerService.HintSize="540.6666666666666,258.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_14">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:MultipleAssign DisplayName="Multiple Assign - nome do asset credencial prod" sap:VirtualizedContainerService.HintSize="478.6666666666667,170.66666666666666" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+          <ui:MultipleAssign.AssignOperations>
+            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[assetSn]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">["serviceNowCredenciais"]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[assetApiSn]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">["serviceNowCredenciaisAPI"]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+            </scg:List>
+          </ui:MultipleAssign.AssignOperations>
+        </ui:MultipleAssign>
+      </Sequence>
+    </Switch>
+    <ui:LogMessage DisplayName="Log Message - assets" sap:VirtualizedContainerService.HintSize="580.6666666666666,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;O valor de assetSn é:&quot; + assetSn + vbCrLf + &quot;E o valor de assetApiSn é:&quot; + assetApiSn]" />
+    <ui:GetRobotCredential AssetName="[in_config(assetSn).ToString]" CacheStrategy="None" DisplayName="Get Credential - credenciais http request" FolderPath="[in_config(&quot;orchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="580.6666666666666,176.66666666666666" sap2010:WorkflowViewState.IdRef="GetRobotCredential_17" Password="[password]" Username="[username]">
+      <ui:GetRobotCredential.TimeoutMS>
+        <InArgument x:TypeArguments="x:Int32" />
+      </ui:GetRobotCredential.TimeoutMS>
+    </ui:GetRobotCredential>
+    <ui:GetRobotCredential AssetName="[in_config(assetApiSn).ToString]" CacheStrategy="None" DisplayName="Get Credential - Client id/secret" FolderPath="[in_config(&quot;orchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="580.6666666666666,176.66666666666666" sap2010:WorkflowViewState.IdRef="GetRobotCredential_18" Password="[clientSecret]" Username="[clientId]">
+      <ui:GetRobotCredential.TimeoutMS>
+        <InArgument x:TypeArguments="x:Int32" />
+      </ui:GetRobotCredential.TimeoutMS>
+    </ui:GetRobotCredential>
+    <usa:ServiceNowScopeActivity DesignConnectionRequest="{x:Null}" ExistingConnection="{x:Null}" ServiceNowConnection="{x:Null}" ClientId="[clientId]" ClientSecret="[clientSecret]" DisplayName="ServiceNow Application Scope - Baixar arquivo de input" EndpointUrl="[in_config(&quot;serviceNowEndpoint&quot;).ToString]" sap:VirtualizedContainerService.HintSize="580.6666666666666,496" sap2010:WorkflowViewState.IdRef="ServiceNowScopeActivity_9" Password="[password]" TelemetryEnabled="False" ThrowExceptionOnError="False" UseOauth2="False" Username="[username]">
+      <usa:ServiceNowScopeActivity.Body>
+        <ActivityAction x:TypeArguments="ubac:ScopeActivityContext">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ubac:ScopeActivityContext" Name="ScopeActivityContext" />
+          </ActivityAction.Argument>
+          <ui:RetryScope DisplayName="Retry Scope - tenta baixar 3 vezes o chamado" sap:VirtualizedContainerService.HintSize="376,351.3333333333333" sap2010:WorkflowViewState.IdRef="RetryScope_3" NumberOfRetries="[CInt(in_config(&quot;retryNumberGeneric&quot;).ToString)]" RetryInterval="[TimeSpan.Parse(in_config(&quot;delayCurto&quot;).ToString)]">
+            <ui:RetryScope.ActivityBody>
+              <ActivityAction>
+                <usa:DownloadAttachment SysId="{x:Null}" DisplayName="Download Attachment - Download input" FolderPath="[in_config(&quot;pastaTemp&quot;).ToString]" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="DownloadAttachment_4" ObjectSysId="[sysIdDocumento]" Status="[status]">
+                  <usa:DownloadAttachment.TelemetryProperties>
+                    <scg:Dictionary x:TypeArguments="ubt:TelemetryGroup, scg:IDictionary(x:String, x:String)" />
+                  </usa:DownloadAttachment.TelemetryProperties>
+                </usa:DownloadAttachment>
+              </ActivityAction>
+            </ui:RetryScope.ActivityBody>
+            <ui:RetryScope.Condition>
+              <ActivityFunc x:TypeArguments="x:Boolean">
+                <ui:CheckTrue DisplayName="Check True - Verificar status" ErrorMessage="Erro ao fazer download do arquivo de input" Expression="[status.Success]" sap:VirtualizedContainerService.HintSize="334,129" sap2010:WorkflowViewState.IdRef="CheckTrue_2" />
+              </ActivityFunc>
+            </ui:RetryScope.Condition>
+          </ui:RetryScope>
+        </ActivityAction>
+      </usa:ServiceNowScopeActivity.Body>
+      <usa:ServiceNowScopeActivity.ServiceFactory>
+        <uss:ServiceNowServiceFactory BusinessEntityExecuteService="{x:Null}">
+          <uss:ServiceNowServiceFactory.AttachmentService>
+            <uss2:AttachmentService />
+          </uss:ServiceNowServiceFactory.AttachmentService>
+          <uss:ServiceNowServiceFactory.BusinessEntityService>
+            <uss2:BusinessEntityService />
+          </uss:ServiceNowServiceFactory.BusinessEntityService>
+          <uss:ServiceNowServiceFactory.ConnectionService>
+            <uss1:ConnectionService />
+          </uss:ServiceNowServiceFactory.ConnectionService>
+          <uss:ServiceNowServiceFactory.MetadataService>
+            <uss2:MetadataService />
+          </uss:ServiceNowServiceFactory.MetadataService>
+          <uss:ServiceNowServiceFactory.QueryService>
+            <uss2:QueryService />
+          </uss:ServiceNowServiceFactory.QueryService>
+          <uss:ServiceNowServiceFactory.SampleDataService>
+            <uss2:SampleDataService />
+          </uss:ServiceNowServiceFactory.SampleDataService>
+        </uss:ServiceNowServiceFactory>
+      </usa:ServiceNowScopeActivity.ServiceFactory>
+      <usa:ServiceNowScopeActivity.TelemetryProperties>
+        <scg:Dictionary x:TypeArguments="ubt:TelemetryGroup, scg:IDictionary(x:String, x:String)" />
+      </usa:ServiceNowScopeActivity.TelemetryProperties>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </usa:ServiceNowScopeActivity>
+    <Assign sap2010:Annotation.AnnotationText="Recupera o último arquivo na pasta do relatório de execução do script" DisplayName="Assign - Caminho do relatório de execução" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="Assign_7">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[out_caminhoArquivoInput]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[Directory.GetFiles(in_config("pastaTemp").ToString).OrderByDescending(Function(f) New FileInfo(f).LastWriteTime).First()]</InArgument>
+      </Assign.Value>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </Assign>
+    <ui:LogMessage DisplayName="Log Message - Arquivo SNow recuperado" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[&quot;[FIM] RecuperarArquivoSN: arquivo recuperado do service now&quot;]" />
+  </Sequence>
+</Activity>

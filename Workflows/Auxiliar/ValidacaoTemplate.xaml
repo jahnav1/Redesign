@@ -1,0 +1,345 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ValidacaoTemplate" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_caminhoArquivoTemplate" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_transactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property Name="in_servico" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:ValidacaoTemplate.in_caminhoArquivoTemplate>
+    <InArgument x:TypeArguments="x:String" />
+  </this:ValidacaoTemplate.in_caminhoArquivoTemplate>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1101.3333333333333,1693.3333333333333</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ValidacaoTemplate_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Python</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Python.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ValidacaoTemplate" sap:VirtualizedContainerService.HintSize="620.6666666666666,1628.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="scg:List(x:String)" Name="colunasObrigatorias" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_inputExecucao" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message - Inicia validação do template" sap:VirtualizedContainerService.HintSize="558.6666666666666,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;[INICIO] ValidacaoTemplate: Iniciando validação do template excel&quot;]" />
+    <Sequence DisplayName="Leitura do arquivo template" sap:VirtualizedContainerService.HintSize="558.6666666666666,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_11">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" DisplayName="Excel Application Scope - abrir arquivo no excel para validação" sap:VirtualizedContainerService.HintSize="484,402.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[in_caminhoArquivoTemplate]">
+        <ui:ExcelApplicationScope.Body>
+          <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Ler excel para fazer validação" sap:VirtualizedContainerService.HintSize="450,292.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_10">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="primeiraSheet" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ExcelGetWorkbookSheet DisplayName="Get Workbook Sheet - Recupera primeira sheet" sap:VirtualizedContainerService.HintSize="388,82" sap2010:WorkflowViewState.IdRef="ExcelGetWorkbookSheet_2" Index="0" Sheet="[primeiraSheet]" />
+              <ui:ExcelReadRange AddHeaders="True" DataTable="[dt_inputExecucao]" DisplayName="Read Range - Lê primeira sheet do arquivo" sap:VirtualizedContainerService.HintSize="388,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_2" SheetName="[primeiraSheet]">
+                <ui:ExcelReadRange.Range>
+                  <InArgument x:TypeArguments="x:String">
+                    <Literal x:TypeArguments="x:String" Value="" />
+                  </InArgument>
+                </ui:ExcelReadRange.Range>
+              </ui:ExcelReadRange>
+            </Sequence>
+          </ActivityAction>
+        </ui:ExcelApplicationScope.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:ExcelApplicationScope>
+    </Sequence>
+    <Sequence DisplayName="Verifica colunas obrigatórias" sap:VirtualizedContainerService.HintSize="558.6666666666666,899.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="nomeAssetColunasObrigatorias" />
+        <Variable x:TypeArguments="x:Boolean" Name="colunasPresentesHeader" />
+        <Variable x:TypeArguments="x:String" Name="msgColunasAusentes" />
+        <Variable x:TypeArguments="scg:List(x:String)" Name="colunasHeader" />
+        <Variable x:TypeArguments="scg:List(x:String)" Name="colunasAusentes" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign DisplayName="Assign - Identifica qual o robô por meio do item de fila" sap:VirtualizedContainerService.HintSize="496.6666666666667,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_13">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[in_servico]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[in_transactionItem.SpecificContent("SERVICO").ToString]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Switch x:TypeArguments="x:String" DisplayName="Switch - Recupera nome do asset que contém as colunas obrigatórias de acordo com script" Expression="[in_servico.ToUpper]" sap:VirtualizedContainerService.HintSize="496.6666666666667,193.33333333333334" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign x:Key="EXTRATO" DisplayName="Assign - Nome do asset com colunas obrigatórias (EXTRATO)" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[nomeAssetColunasObrigatorias]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">["camposObrigatoriosExtrato"]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign x:Key="SALDO" DisplayName="Assign - Nome do asset com colunas obrigatórias (SALDO)" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[nomeAssetColunasObrigatorias]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">["camposObrigatoriosSaldo"]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign x:Key="CHAVE" DisplayName="Assign - Nome do asset com colunas obrigatórias (CHAVE)" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[nomeAssetColunasObrigatorias]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">["camposObrigatoriosChave"]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Switch>
+      <Assign DisplayName="Assign - colunas obrigatórias" sap:VirtualizedContainerService.HintSize="496.6666666666667,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign.To>
+          <OutArgument x:TypeArguments="scg:List(x:String)">[colunasObrigatorias]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="scg:List(x:String)">[in_config(nomeAssetColunasObrigatorias).ToString.Split(","c).Select(Function(value) value.Trim).ToList]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Assign - colunas do header" sap:VirtualizedContainerService.HintSize="496.6666666666667,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_8">
+        <Assign.To>
+          <OutArgument x:TypeArguments="scg:List(x:String)">[colunasHeader]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="scg:List(x:String)">[dt_inputExecucao.Columns.Cast(Of DataColumn)().Select(Function(column) column.ColumnName).ToList()]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Assign - colunas obrigatórias estão presentes?" sap:VirtualizedContainerService.HintSize="496.6666666666667,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_9">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Boolean">[colunasPresentesHeader]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Boolean">[colunasObrigatorias.All(Function(item) colunasHeader.Contains(item))]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <If Condition="[not colunasPresentesHeader]" DisplayName="Se as colunas obrigatórias não estão presentes" sap:VirtualizedContainerService.HintSize="496.6666666666667,54" sap2010:WorkflowViewState.IdRef="If_2">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <Sequence sap:VirtualizedContainerService.HintSize="476,489.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="Assign - Colunas ausentes" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_12">
+              <Assign.To>
+                <OutArgument x:TypeArguments="scg:List(x:String)">[colunasAusentes]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="scg:List(x:String)">[colunasObrigatorias.Where(Function(item) Not colunasHeader.Contains(item)).ToList()]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:LogMessage DisplayName="Log Message - Especificação das colunas ausentes" sap:VirtualizedContainerService.HintSize="434,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;Existem colunas obrigatórias ausentes: &quot;+ String.join(&quot;, &quot;, colunasAusentes)]" />
+            <Throw DisplayName="Throw - BRE colunas ausentes" Exception="[new BusinessRuleException(msgColunasAusentes)]" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="Throw_2" />
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence sap:VirtualizedContainerService.HintSize="376,232" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message - colunas obrigatórias presentes" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Todas as colunas obrigatórias estão presentes&quot;]" />
+          </Sequence>
+        </If.Else>
+      </If>
+    </Sequence>
+    <Sequence DisplayName="Verifica campos obrigatórios em branco" sap:VirtualizedContainerService.HintSize="496,1221.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_5">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:Int32" Name="qtdCamposObrigatoriosVazios" />
+        <Variable x:TypeArguments="x:String" Name="msgCampoVazio" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign DisplayName="Assign - Verifica quantidade de campos  obrigatórios em branco" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_6">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Int32">[qtdCamposObrigatoriosVazios]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Int32">[dt_inputExecucao.AsEnumerable().Count(Function(row) colunasObrigatorias.Any(Function(field) String.IsNullOrEmpty(Convert.ToString(row(field)))))]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <If Condition="[qtdCamposObrigatoriosVazios  &gt; 0]" DisplayName="Se existem campos obrigatórios não preenchidos" sap:VirtualizedContainerService.HintSize="434,985.3333333333334" sap2010:WorkflowViewState.IdRef="If_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <Sequence sap:VirtualizedContainerService.HintSize="376,569.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim linhasComCamposVazios = in_dt_inputExecucao.AsEnumerable().Select(Function(row, index) (index + 1, in_colunasObrigatorias.Where(Function(field) String.IsNullOrEmpty(Convert.ToString(row(field))))))&#xA;Dim msgLogCompleta As New List(Of String)()&#xA;&#xA;For Each linhaComCampoVazio In linhasComCamposVazios&#xA;    Dim camposVazios = linhaComCampoVazio.Item2.ToList()&#xA;    If camposVazios.Any() Then&#xA;        Dim msgLog = $&quot;Campos vazios na linha {linhaComCampoVazio.Item1}: {String.Join(&quot;, &quot;, camposVazios)}&quot;&#xA;        msgLogCompleta .Add(msgLog)&#xA;    End If&#xA;Next&#xA;&#xA;out_msgCampoVazio = String.Join(Environment.NewLine,msgLogCompleta)&#xA;" DisplayName="Invoke Code - Identificação de campos em branco" sap:VirtualizedContainerService.HintSize="334,165.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+              <ui:InvokeCode.Arguments>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_inputExecucao">[dt_inputExecucao]</InArgument>
+                <InArgument x:TypeArguments="scg:List(x:String)" x:Key="in_colunasObrigatorias">[colunasObrigatorias]</InArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_msgCampoVazio">[msgCampoVazio]</OutArgument>
+              </ui:InvokeCode.Arguments>
+            </ui:InvokeCode>
+            <ui:LogMessage DisplayName="Log Message - Especificação dos campso vazios" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[msgCampoVazio]" />
+            <Throw DisplayName="Throw - BRE campos vazios no template" Exception="[new BusinessRuleException(msgCampoVazio)]" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Throw_1" />
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence sap:VirtualizedContainerService.HintSize="376,232" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message - Campos obrigatórios presentes" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Todos os campos obrigatórios estão preenchidos&quot;]" />
+          </Sequence>
+        </If.Else>
+      </If>
+    </Sequence>
+    <ui:LogMessage DisplayName="Log Message - Finaliza validação do template" sap:VirtualizedContainerService.HintSize="558.6666666666666,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;[FIM] ValidacaoTemplate: Finalização do template finalizada&quot;]" />
+  </Sequence>
+</Activity>

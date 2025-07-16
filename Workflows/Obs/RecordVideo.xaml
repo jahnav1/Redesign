@@ -1,0 +1,181 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="RecordVideo" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:Stone_CoE_ScreenRecorder;assembly=Stone_CoE_ScreenRecorder" xmlns:s1="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1410.4,1046.4</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="92">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Windows.Forms</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>Stone_CoE_ScreenRecorder</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.OCR.Activities</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.Platform.Triggers</x:String>
+      <x:String>UiPath.Platform.Triggers.Scope</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="128">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>Stone_CoE_ScreenRecorder</AssemblyReference>
+      <AssemblyReference>StoneCoEScreenRecorder</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Management.Automation</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Python</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>WindowsFormsIntegration</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <If Condition="[Convert.ToBoolean(in_config(&quot;desktopVideoRecorder&quot;).ToString)]" DisplayName="If - Record video" sap:VirtualizedContainerService.HintSize="520,981.6" sap2010:WorkflowViewState.IdRef="If_15">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <If.Then>
+      <TryCatch DisplayName="Try Catch - Start recording" sap:VirtualizedContainerService.HintSize="486.4,798.4" sap2010:WorkflowViewState.IdRef="TryCatch_13">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <TryCatch.Try>
+          <Sequence DisplayName="Start recording" sap:VirtualizedContainerService.HintSize="449.6,567.2" sap2010:WorkflowViewState.IdRef="Sequence_31">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message - Inicio gravacao" sap:VirtualizedContainerService.HintSize="387.2,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_39" Level="Trace" Message="[&quot;[INICIO] RecordVideo - Iniciando gravacao&quot;]" />
+            <s:Start_Recorder_Via_Interface DisplayName="Start Recorder Via Interface" sap:VirtualizedContainerService.HintSize="387.2,90.4" sap2010:WorkflowViewState.IdRef="Start_Recorder_Via_Interface_3" in_processo="RPA0010" />
+            <ui:LogMessage DisplayName="Log Message - Gravacao finalizada" sap:VirtualizedContainerService.HintSize="387.2,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_38" Level="Trace" Message="[&quot;[FIM] RecordVideo - Gravação iniciada&quot;]" />
+          </Sequence>
+        </TryCatch.Try>
+        <TryCatch.Catches>
+          <Catch x:TypeArguments="s1:Exception" sap:VirtualizedContainerService.HintSize="452.8,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_14">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ActivityAction x:TypeArguments="s1:Exception">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="s1:Exception" Name="exception" />
+              </ActivityAction.Argument>
+              <ui:LogMessage DisplayName="Log Message - não conseguiu startar video" sap:VirtualizedContainerService.HintSize="334.4,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_37" Level="Warn" Message="[&quot;Nao foi possivel iniciar o video:  &quot;+exception.Message]" />
+            </ActivityAction>
+          </Catch>
+        </TryCatch.Catches>
+      </TryCatch>
+    </If.Then>
+    <If.Else>
+      <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_32" />
+    </If.Else>
+  </If>
+</Activity>

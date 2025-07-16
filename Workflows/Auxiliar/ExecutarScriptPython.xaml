@@ -1,0 +1,568 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="teste_python" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/python" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="out_nomeArquivoLogPython" Type="OutArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_transactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property Name="in_caminhoArquivoInput" Type="InArgument(x:String)" />
+    <x:Property Name="out_retornoString" Type="OutArgument(x:String)" />
+    <x:Property Name="out_caminhoRelatorioExecucao" Type="OutArgument(x:String)" />
+  </x:Members>
+  <this:teste_python.in_config>
+    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" />
+  </this:teste_python.in_config>
+  <this:teste_python.in_caminhoArquivoInput>
+    <InArgument x:TypeArguments="x:String" />
+  </this:teste_python.in_caminhoArquivoInput>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1410.4,3611.2</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>teste_python_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="68">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Python</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.Python.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>System.Management.Automation</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>Newtonsoft.Json.Serialization</x:String>
+      <x:String>Newtonsoft.Json.Converters</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Security</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="118">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Management.Automation</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Python</AssemblyReference>
+      <AssemblyReference>UiPath.Python.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ExecutarScriptPython" sap:VirtualizedContainerService.HintSize="656,3546.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="argumentosFuncaoMain" />
+      <Variable x:TypeArguments="p:PythonObject" Name="instancia" />
+      <Variable x:TypeArguments="p:PythonObject" Name="retornoPython" />
+      <Variable x:TypeArguments="x:String" Name="libraryPath" />
+      <Variable x:TypeArguments="x:String" Name="path" />
+      <Variable x:TypeArguments="x:String" Name="workingFolder" />
+      <Variable x:TypeArguments="x:String" Name="diretorioAtual" />
+      <Variable x:TypeArguments="x:String" Name="arquivoLogPython" />
+      <Variable x:TypeArguments="x:String" Name="folderArquivosEProgramas" />
+      <Variable x:TypeArguments="x:String" Name="nomeScript" />
+      <Variable x:TypeArguments="x:String" Name="nomeFuncao" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="parametros" />
+      <Variable x:TypeArguments="x:Boolean" Name="retornoSucesso" />
+      <Variable x:TypeArguments="x:Boolean" Name="erroChromeDriver" />
+      <Variable x:TypeArguments="x:String" Name="carga_input_python" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message - Iniciando a execução do script python" sap:VirtualizedContainerService.HintSize="593.6,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;[INICIO] ExecutarScriptPython: Iniciando a execução do script python que vai executar ação no site da caixa&quot;]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Workflows\Auxiliar\AjustaDataAdmissao.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="593.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\Auxiliar\AjustaDataAdmissao.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_input_python">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="carga_input_python" />
+        </OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Sequence sap2010:Annotation.AnnotationText="Cada parâmetro é adicionado num dicionário de parâmetros, que posteriormente é serializado" DisplayName="Recuperar  parametros a serem utilizados no script" sap:VirtualizedContainerService.HintSize="593.6,2067.2" sap2010:WorkflowViewState.IdRef="Sequence_17">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign DisplayName="Assign - dicionario de parâmetros" sap:VirtualizedContainerService.HintSize="531.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_44">
+        <Assign.To>
+          <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[parametros]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[New Dictionary(Of String, Object)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Assign - Url do site da caixa" sap:VirtualizedContainerService.HintSize="531.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_62">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Object">[parametros("url_site_caixa")]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[in_config("urlSiteCaixa").ToString]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Assign - serviço desejado no site da caixa" sap:VirtualizedContainerService.HintSize="531.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_63">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Object">[parametros("servico")]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[in_transactionItem.SpecificContent("SERVICO").ToString.ToUpper]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Assign - Recupera diretório atual" sap:VirtualizedContainerService.HintSize="531.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_71">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[diretorioAtual]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[IO.Directory.GetCurrentDirectory]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:CommentOut sap2010:Annotation.AnnotationText="Caminho do arquivo Input antigo" DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="531.2,343.2" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+        <ui:CommentOut.Body>
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,193.6" sap2010:WorkflowViewState.IdRef="Sequence_53">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="Assign - caminho do arquivo de input" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_64">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Object">[parametros("caminho_arquivo_input")]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[(diretorioAtual +"/"+ in_caminhoArquivoInput).Replace("/","\")]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </ui:CommentOut.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:CommentOut>
+      <Assign DisplayName="Assign - caminho do arquivo de input" sap:VirtualizedContainerService.HintSize="531.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_80">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Object">[parametros("caminho_arquivo_input")]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[(diretorioAtual +"/"+ carga_input_python).Replace("/","\")]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Assign - ambiente de execução" sap:VirtualizedContainerService.HintSize="531.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_65">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Object">[parametros("ambiente_execucao")]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[in_config("ambienteExecucao").ToString]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Assign - Caminho da service account gsuite" sap:VirtualizedContainerService.HintSize="531.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_66">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Object">[parametros("caminho_service_account")]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[(diretorioAtual +"/"+ in_config("gsuiteJsonPathLocation").ToString).Replace("/","\")]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Assign - Caminho do arquivo auxiliar com dados dos certificados" sap:VirtualizedContainerService.HintSize="531.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_72">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Object">[parametros("caminho_arquivo_dados_certificados")]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[(diretorioAtual +"/"+ in_config("pastaTemp").ToString+"/"+ in_config("arquivoAuxiliarRegras").ToString).Replace("/","\")]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Assign - email do usuário associado a service account" sap:VirtualizedContainerService.HintSize="531.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_67">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Object">[parametros("email_usuario")]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[If(in_config("ambienteExecucao").ToString.Equals("PROD"), in_config("robotProd").ToString, in_config("robotQA").ToString)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Assign - Maxima qtd de retry do python" sap:VirtualizedContainerService.HintSize="531.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_76">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Object">[parametros("max_qtd_retry")]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Int32">[CInt(in_config("maxQtdRetryPython"))]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Assign - Maxima qtd de falhas consecutivas do python" sap:VirtualizedContainerService.HintSize="531.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_77">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Object">[parametros("max_qtd_falhas_consecutivas")]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Int32">[CInt(in_config("maxQtdFalhaConsecutivasPython"))]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Assign - Caminho relativo outputs scripts" sap:VirtualizedContainerService.HintSize="531.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_78">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Object">[parametros("caminho_relativo_output_scripts")]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Object">[in_config("caminhoRelativoOutputScriptsPython")]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Assign - Caminho relativo relatório de execução" sap:VirtualizedContainerService.HintSize="531.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_79">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Object">[parametros("caminho_relativo_relatorio_execucao")]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Object">[in_config("caminhoRelativoRelatorioExecucaoPython")]</InArgument>
+        </Assign.Value>
+      </Assign>
+    </Sequence>
+    <Sequence DisplayName="Organiza argumentos a serem usados no python scope" sap:VirtualizedContainerService.HintSize="593.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_47">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="strParametros" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign DisplayName="Assign - Parâmetros serializados" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_51">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[strparametros]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[JsonConvert.SerializeObject(parametros)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Assign - nome do script a ser executado" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_57">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[nomeScript]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[in_config("nomeScriptExecutarAcaoSiteCaixa").ToString]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Assign - nome da função a ser executada" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_53">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[nomeFuncao]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[in_config("nomeFuncaoExecutarAcaoCaixa").ToString]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Assign - argumentos função python" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_54">
+        <Assign.To>
+          <OutArgument x:TypeArguments="scg:IEnumerable(x:Object)">[argumentosFuncaoMain]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="scg:IEnumerable(x:Object)">[{nomeScript, nomeFuncao, strParametros}]</InArgument>
+        </Assign.Value>
+      </Assign>
+    </Sequence>
+    <Sequence DisplayName="Configura informações a serem inseridas no python scope" sap:VirtualizedContainerService.HintSize="593.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_33">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:GetEnvironmentFolder DisplayName="Get Environment Folder -Arquivo de Programa" FolderPath="[folderArquivosEProgramas]" sap:VirtualizedContainerService.HintSize="478.4,85.6" sap2010:WorkflowViewState.IdRef="GetEnvironmentFolder_2" SpecialFolder="ProgramFiles" />
+      <ui:MultipleAssign DisplayName="Multiple Assign - configuração python scope sem ambiente virtual" sap:VirtualizedContainerService.HintSize="478.4,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_9">
+        <ui:MultipleAssign.AssignOperations>
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[libraryPath]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[folderArquivosEProgramas+"\"+in_config("pastaInstalacaoPython").ToString + "\" + in_config("arquivoDllPython").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[path]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[folderArquivosEProgramas+"\"+ in_config("pastaInstalacaoPython").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[workingFolder]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[diretorioAtual +"\"+ in_config("workingFolderPython").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+          </scg:List>
+        </ui:MultipleAssign.AssignOperations>
+      </ui:MultipleAssign>
+      <ui:LogMessage DisplayName="Log Message - library path" sap:VirtualizedContainerService.HintSize="478.4,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Library Path(caminho do dll): &quot; + libraryPath.ToString]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:LogMessage>
+      <ui:LogMessage DisplayName="Log Message - Path" sap:VirtualizedContainerService.HintSize="478.4,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Path (pasta executável python): &quot; + path]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:LogMessage>
+      <ui:LogMessage DisplayName="Log Message - Working folder" sap:VirtualizedContainerService.HintSize="478.4,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Working folder: &quot; + workingFolder]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:LogMessage>
+    </Sequence>
+    <Sequence DisplayName="Executa o script python" sap:VirtualizedContainerService.HintSize="593.6,164.8" sap2010:WorkflowViewState.IdRef="Sequence_15">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <p:PythonScope DisplayName="Python Scope - executar script  python" sap:VirtualizedContainerService.HintSize="387.2,52.8" sap2010:WorkflowViewState.IdRef="PythonScope_3" LibraryPath="[libraryPath]" OperationTimeout="[CDbl(in_config(&quot;timeoutPythonScope&quot;).ToString)]" Path="[path]" TargetPlatform="x64" Version="Python &gt;=3.10" WorkingFolder="[workingFolder]">
+        <p:PythonScope.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="PythonEngineSessionProperty" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Executar script no ambiente virtual" sap:VirtualizedContainerService.HintSize="563.2,2363.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message - Python scope configurado" sap:VirtualizedContainerService.HintSize="500.8,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_27" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Python scope ativado&quot;]" />
+              <p:LoadScript Code="{x:Null}" DisplayName="Load Python Script - Lê codigo python" sap:VirtualizedContainerService.HintSize="500.8,60" sap2010:WorkflowViewState.IdRef="LoadScript_1" Result="[instancia]" ScriptFile="[in_config(&quot;workingFolderPython&quot;).ToString+ &quot;\main.py&quot;]" />
+              <ui:LogMessage DisplayName="Log Message - script carregado" sap:VirtualizedContainerService.HintSize="500.8,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_28" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Script python carregado&quot;]" />
+              <p:InvokeMethod DisplayName="Invoke Python Method - Chama metodo main" sap:VirtualizedContainerService.HintSize="500.8,80.8" sap2010:WorkflowViewState.IdRef="InvokeMethod_3" Instance="[instancia]" Name="main" Parameters="[argumentosFuncaoMain]" Result="[retornoPython]" />
+              <ui:LogMessage DisplayName="Log Message - invoke method executado" sap:VirtualizedContainerService.HintSize="500.8,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_29" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Função do python invocada&quot;]" />
+              <p:GetObject x:TypeArguments="x:String" DisplayName="Get Python Object - retorno python" sap:VirtualizedContainerService.HintSize="500.8,80.8" sap2010:WorkflowViewState.IdRef="GetObject`1_4" PythonObject="[retornoPython]" Result="[out_retornoString]" />
+              <ui:LogMessage DisplayName="Log Message - retorno do script python" sap:VirtualizedContainerService.HintSize="500.8,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Retorno python: &quot; + out_retornoString]" />
+              <Assign DisplayName="Assign - Processamento executado com sucesso" sap:VirtualizedContainerService.HintSize="500.8,81.6" sap2010:WorkflowViewState.IdRef="Assign_74">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[retornoSucesso]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Boolean">[System.Text.RegularExpressions.Regex.IsMatch(out_retornoString, "Quantidade de linhas recebidas:(\d+),Quantidade de linhas processadas:(\d+),Sucesso:(\d+),Erro previsto:(\d+),Erro não previsto:(\d+)")]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign DisplayName="Assign - Erro de chrome driver" sap:VirtualizedContainerService.HintSize="500.8,81.6" sap2010:WorkflowViewState.IdRef="Assign_75">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[erroChromeDriver]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Boolean">[out_retornoString.Contains("Versao do chromedriver diferente da presente na maquina")]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:IfElseIf DisplayName="Else If - executa ação a depender do retorno" sap:VirtualizedContainerService.HintSize="500.8,936.8" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
+                <ui:IfElseIf.ConditionBlocks>
+                  <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                    <ui:IfElseIfBlock BlockType="If" Condition="[retornoSucesso]">
+                      <ui:IfElseIfBlock.Then>
+                        <Sequence DisplayName="Recuperar nome do arquivo de log python e caminho do relatório de execução" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign sap2010:Annotation.AnnotationText="Recupera o último arquivo na pasta de evidências de log de execução python" DisplayName="Assign - Caminho da evidência de log python" sap:VirtualizedContainerService.HintSize="434,130.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_39">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[arquivoLogPython]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[Directory.GetFiles(in_config("pastaEvidenciaPython").ToString).OrderByDescending(Function(f) New FileInfo(f).LastWriteTime).First()]</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                          <Assign DisplayName="Assign - nome do arquivo de log python" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_40">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[out_nomeArquivoLogPython]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[New System.IO.FileInfo(arquivoLogPython).Name]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap2010:Annotation.AnnotationText="Recupera o último arquivo na pasta do relatório de execução do script" DisplayName="Assign - Caminho do relatório de execução" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="Assign_73">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[out_caminhoRelatorioExecucao]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">[Directory.GetFiles(in_config("pastaRelatorioExecucao").ToString).OrderByDescending(Function(f) New FileInfo(f).LastWriteTime).First()]</InArgument>
+                            </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Assign>
+                          <ui:LogMessage DisplayName="Log Message - Nome para encontar arquivo bucket" sap:VirtualizedContainerService.HintSize="434,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_34" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Arquivo de log do script python armazenado no storage bucket: &quot; + out_nomeArquivoLogPython]" />
+                        </Sequence>
+                      </ui:IfElseIfBlock.Then>
+                    </ui:IfElseIfBlock>
+                    <ui:IfElseIfBlock BlockType="ElseIf" Condition="[erroChromeDriver]">
+                      <ui:IfElseIfBlock.Then>
+                        <Sequence sap2010:Annotation.AnnotationText="Retorna uma BRE para que a automação passe para o próximo item de fila. Internamente no python existe uma forma de reprocessamento" DisplayName="Gerar exceção relacionada ao chrome driver" sap:VirtualizedContainerService.HintSize="450.4,248" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Throw DisplayName="Throw - BRE versão chrome driver" Exception="[new BusinessRuleException(&quot;Erro ao tentar usar o chrome driver. Verificar versão utilizada&quot;)]" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                        </Sequence>
+                      </ui:IfElseIfBlock.Then>
+                    </ui:IfElseIfBlock>
+                    <ui:IfElseIfBlock BlockType="Else">
+                      <ui:IfElseIfBlock.Then>
+                        <Sequence sap2010:Annotation.AnnotationText="Retorna uma BRE para que a automação passe para o próximo item de fila. Internamente no python existe uma forma de reprocessamento" DisplayName="Gerar exceção não mapeada" sap:VirtualizedContainerService.HintSize="450,248" sap2010:WorkflowViewState.IdRef="Sequence_52">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Throw DisplayName="Throw - BRE execução do script python" Exception="[new BusinessRuleException(&quot;Ocorreu um erro ao tentar executar o script python&quot;)]" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                        </Sequence>
+                      </ui:IfElseIfBlock.Then>
+                    </ui:IfElseIfBlock>
+                  </sc:BindingList>
+                </ui:IfElseIf.ConditionBlocks>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:IfElseIf>
+            </Sequence>
+          </ActivityAction>
+        </p:PythonScope.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </p:PythonScope>
+    </Sequence>
+    <Sequence sap2010:Annotation.AnnotationText="Limpar o diretório Data/Temp para evitar conflito de arquivos ao processar o script Pyhton com os proximos itens da fila." DisplayName="Limpando Arquivos da Pasta" sap:VirtualizedContainerService.HintSize="593.6,357.6" sap2010:WorkflowViewState.IdRef="Sequence_54">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:DeleteFileX DisplayName="Delete File Caminho Arquivo" sap:VirtualizedContainerService.HintSize="387.2,80.8" sap2010:WorkflowViewState.IdRef="DeleteFileX_2" Path="[(diretorioAtual +&quot;/&quot;+ in_caminhoArquivoInput).Replace(&quot;/&quot;,&quot;\&quot;)]" />
+      <ui:DeleteFileX DisplayName="Delete File Carga Input Python" sap:VirtualizedContainerService.HintSize="387.2,80.8" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[(diretorioAtual +&quot;/&quot;+ carga_input_python).Replace(&quot;/&quot;,&quot;\&quot;)]" />
+    </Sequence>
+    <ui:LogMessage DisplayName="Log Message - Script python executado" sap:VirtualizedContainerService.HintSize="593.6,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[&quot;[FIM] ExecutarScriptPython: Script python executado&quot;]" />
+  </Sequence>
+</Activity>

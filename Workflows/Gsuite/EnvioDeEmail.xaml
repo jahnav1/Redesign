@@ -1,0 +1,145 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="EnvioDeEmail" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ug="clr-namespace:UiPath.GSuite;assembly=UiPath.GSuite" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_body" Type="InArgument(x:String)" />
+    <x:Property Name="in_cc" Type="InArgument(s:String[])" />
+    <x:Property Name="in_subject" Type="InArgument(x:String)" />
+    <x:Property Name="in_recipient" Type="InArgument(s:String[])" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_listaAnexos" Type="InArgument(s:String[])" />
+  </x:Members>
+  <this:EnvioDeEmail.in_config>
+    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" />
+  </this:EnvioDeEmail.in_config>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1794,1103</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>EnvioDeEmail_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.GSuite</x:String>
+      <x:String>UiPath.Productivity.Services.Resolver</x:String>
+      <x:String>UiPath.GSuite.Activities.Enums</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.GSuite.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Python</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Python.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="EnvioDeEmail" sap:VirtualizedContainerService.HintSize="472,1038" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message - Iniciando envio de email" sap:VirtualizedContainerService.HintSize="410,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;[INICIO] EnvioDeEmail:  Iniciando envio de email&quot;]" />
+    <uga:GSuiteApplicationScope Account="{x:Null}" ApiKey="{x:Null}" ContinueOnError="{x:Null}" CredentialID="{x:Null}" CredentialSecret="{x:Null}" Folder="{x:Null}" SecureCredentialSecret="{x:Null}" ServiceAccountEmail="{x:Null}" TimeoutMS="{x:Null}" AuthenticationType="ServiceAccountKey" DataStoreLocation="ORCHESTRATOR" DisplayName="GSuite Application Scope - Enviar email para areea de negocios" HasDomainWideAccesss="True" sap:VirtualizedContainerService.HintSize="410,565" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_1" KeyPath="[in_config(&quot;gsuiteJsonPathLocation&quot;).ToString]" KeyType="JSON" OAuthClient="UIPATH" Password="notasecret" Services="Unselected" UserEmail="[If(in_config(&quot;ambienteExecucao&quot;).ToString.Equals(&quot;PROD&quot;), in_config(&quot;robotProd&quot;).ToString, in_config(&quot;robotQA&quot;).ToString)]">
+      <uga:GSuiteApplicationScope.AuthenticationScopes>
+        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+          <InArgument x:TypeArguments="x:String">https://mail.google.com/</InArgument>
+        </scg:List>
+      </uga:GSuiteApplicationScope.AuthenticationScopes>
+      <uga:GSuiteApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ug:SimpleObjectContainer">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ug:SimpleObjectContainer" Name="GSuiteScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Enviar" sap:VirtualizedContainerService.HintSize="376,426" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uga:SendEmail Bcc="{x:Null}" ContinueOnError="{x:Null}" AttachmentList="[in_listaAnexos]" AuthScopesInvalid="False" Body="[in_body]" Cc="[in_cc]" DisplayName="Send Mail Message - Enviar email" sap:VirtualizedContainerService.HintSize="334,338" sap2010:WorkflowViewState.IdRef="SendEmail_1" IsDraft="False" IsHTML="False" Subject="[in_subject]" To="[in_recipient]">
+              <uga:SendEmail.Attachments>
+                <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+              </uga:SendEmail.Attachments>
+            </uga:SendEmail>
+          </Sequence>
+        </ActivityAction>
+      </uga:GSuiteApplicationScope.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uga:GSuiteApplicationScope>
+    <ui:LogMessage DisplayName="Log Message - Email enviado" sap:VirtualizedContainerService.HintSize="410,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;[FIM] EnvioDeEmail:  Email enviado&quot;]" />
+  </Sequence>
+</Activity>

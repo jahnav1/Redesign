@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "python-scripts"
+version = "0.1.0"
+description = ""
+authors = ["Camila Caldas <camila.caldas@stone.com.br>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^2.1.4"
+selenium = "^4.23.0"
+webdriver-manager = "^4.0.2"
+pyautogui = "^0.9.54"
+fpdf = "^1.7.2"
+openpyxl = "^3.1.2"
+google-api-python-client = "^2.114.0"
+black = "^23.12.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

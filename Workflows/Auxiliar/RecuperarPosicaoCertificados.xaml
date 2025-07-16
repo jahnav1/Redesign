@@ -1,0 +1,280 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="RecuperarPosicaoCertificados" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="BreakTriggerScopeInArgument" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_dt_certificados" Type="InArgument(sd:DataTable)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1234,3727</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>RecuperarPosicaoCertificados_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Python</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Python.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="RecuperarPosicaoCertificados" sap:VirtualizedContainerService.HintSize="668,3662" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="certificadosExistentes" />
+      <Variable x:TypeArguments="x:Int32" Name="qtdCertificados" />
+      <Variable x:TypeArguments="x:Int32" Name="indexIdx" />
+      <Variable x:TypeArguments="x:Int32" Name="posicaoCertificado" />
+      <Variable x:TypeArguments="x:String" Name="urlSiteCaixa" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message - Recuperando posições certificado" sap:VirtualizedContainerService.HintSize="606,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;[INICIO] RecuperarPosicaoCertificados: Iniciando a recuperação da posição dos certificados&quot;]" />
+    <Assign DisplayName="Assign - recupera url site da caixa" sap:VirtualizedContainerService.HintSize="606,82" sap2010:WorkflowViewState.IdRef="Assign_14">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[urlSiteCaixa]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[in_config("urlSiteCaixa").ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Página inicial site caixa - abrir seleção de certificado" sap:VirtualizedContainerService.HintSize="606,3063" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" IsIncognito="False" OpenMode="Always" ScopeGuid="2f91de69-ba2f-4a76-9e70-227c9f6f36fe" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Abrir seleção dos certificados e recupera a posição" sap:VirtualizedContainerService.HintSize="572,2846" sap2010:WorkflowViewState.IdRef="Sequence_12">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Botão empregador'" sap:VirtualizedContainerService.HintSize="510,157" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="2f91de69-ba2f-4a76-9e70-227c9f6f36fe" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://conectividadesocialv2.caixa.gov.br/sicns/" ContentHash="PyyvjqhFg0eDWrBrWSlOxQ" CvElementArea="1316, 769, 421, 118" CvTextArea="1443, 813, 169, 34" CvTextArgument="Empregador" CvType="Button" DesignTimeRectangle="1318, 769, 420, 120" DesignTimeScaleFactor="1.5" ElementType="Button" FriendlyName="'Botão empregador'" FullSelectorArgument="&lt;webctrl id='btnEmpregador' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='btnEmpregador' tag='BUTTON' type='button' class='btn btn-info btn-lg btn-block' aaname='Empregador' check:innerText='Empregador' /&gt;" Guid="b05700a3-ee6a-4ec0-85f0-10884b84697e" InformativeScreenshot="341154c431c6c1fb5c5fce7df30c8c53.png" Reference="c3IFq2anMkWIChe0d_xZjA/QUmdedJB8Eef6DRpnefW6g" ScopeSelectorArgument="&lt;html app='chrome.exe' title='PortalCns' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V2" WaitForReadyArgument="Complete" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <ui:FindChildren Children="[certificadosExistentes]" DisplayName="Find Children - encontrar certificados disponiveis" Filter="&lt;ctrl /&gt;" sap:VirtualizedContainerService.HintSize="510,107" sap2010:WorkflowViewState.IdRef="FindChildren_3" Scope="FIND_CHILDREN">
+              <ui:FindChildren.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="478e09a9-f98e-424c-b535-4d7dba0800ef" InformativeScreenshot="6f850eb28a68fcf228a4f02fd88ef773" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='PortalCns - Google Chrome' /&gt;&lt;ctrl matching:name='regex' name='(Select a certificate|Selecione um certificado)' role='dialog' /&gt;&lt;ctrl role='list' /&gt;" WaitForReady="COMPLETE">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                </ui:Target>
+              </ui:FindChildren.Target>
+            </ui:FindChildren>
+            <Assign DisplayName="Assign - Quantidade de certificados" sap:VirtualizedContainerService.HintSize="510,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_9">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[qtdCertificados]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">[certificadosExistentes.Count -1]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:LogMessage DisplayName="Log Message - Quantiade de certificados" sap:VirtualizedContainerService.HintSize="510,54" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Quantidade de certificados disponíveis: &quot; + qtdCertificados.ToString]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:LogMessage>
+            <Assign sap2010:Annotation.AnnotationText="Vai ser feito para interagir dinamicamente com os seletores. Para a primeira linha o idx é 2" DisplayName="Assign - Valor inicial do Idx" sap:VirtualizedContainerService.HintSize="510,130.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_10">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[indexIdx]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">2</InArgument>
+              </Assign.Value>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </Assign>
+            <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="POSICAO DO CERTIFICADO" DataTable="[in_dt_certificados]" DisplayName="Add Data Column - adição de coluna certificado" sap:VirtualizedContainerService.HintSize="510,191.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_4">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:AddDataColumn>
+            <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[indexIdx &lt;= qtdCertificados + 1]" DisplayName="While - Enquanto o idx for menor que a qtd de certificados digitais" sap:VirtualizedContainerService.HintSize="510,1766" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_4">
+              <ui:InterruptibleWhile.Body>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,1628" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="valorIdx" />
+                    <Variable x:TypeArguments="x:String" Name="nomeCertificadoParaIncluir" />
+                    <Variable x:TypeArguments="x:Int32" Name="linhaASerAtualizada" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign DisplayName="Assign - posicao do certificado" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_11">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[posicaoCertificado]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[indexIdx - 1]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:LogMessage DisplayName="Log Message - Nº do certificado que está sendo adicionado a posição" sap:VirtualizedContainerService.HintSize="434,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Iniciando a inclusão da posição do certificado: &quot; + posicaoCertificado.ToString]" />
+                  <Assign DisplayName="Assign - Atribui valor para idx dinâmico utilizado no seletor" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_12">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[valorIdx]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[indexIdx.ToString]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <uix:NGetAttributeGeneric x:TypeArguments="x:String" Attribute="name" DisplayName="Get Attribute - Nome do certificado" sap:VirtualizedContainerService.HintSize="434,211.33333333333334" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_4" Result="[nomeCertificadoParaIncluir]" ScopeIdentifier="2f91de69-ba2f-4a76-9e70-227c9f6f36fe" Version="V3">
+                    <uix:NGetAttributeGeneric.Target>
+                      <uix:TargetAnchorable CvTextArea="610, 310, 277, 20" CvTextArgument="VITTA TECNOLOGIA EM SAUDE S..." CvType="Text" DesignTimeRectangle="610, 310, 277, 20" DesignTimeScaleFactor="1.5" ElementType="Cell" FriendlyName="'VITTA TECNOLOGIA'" FullSelectorArgument="[string.Format(&quot;&lt;ctrl matching:name='regex' name='(Select a certificate|Selecione um certificado)' role='dialog' /&gt;&lt;ctrl role='row' idx='{0}' /&gt;&lt;ctrl role='cell' idx='1' /&gt;&quot;, valorIdx)]" FuzzyMatches="10000" FuzzySelectorArgument="&lt;ctrl matching:name='regex' name='(Select a certificate|Selecione um certificado)' role='dialog' /&gt;&lt;ctrl role='row' /&gt;&lt;ctrl role='cell' automationid='' /&gt;" Guid="88362c2d-3652-49b8-9290-5c00e9f8920d" ImageBase64="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" InformativeScreenshot="4531e4692ba248235c597009d10111a4.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='PortalCns - Google Chrome' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V2" WaitForReadyArgument="Complete" />
+                    </uix:NGetAttributeGeneric.Target>
+                  </uix:NGetAttributeGeneric>
+                  <ui:LogMessage DisplayName="Log Message - Empresa" sap:VirtualizedContainerService.HintSize="434,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Empresa do certificado em verificação: &quot; + nomeCertificadoParaIncluir]" />
+                  <ui:LookupDataTable CellValue="{x:Null}" LookupColumnIndex="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[in_dt_certificados]" DisplayName="Lookup Data Table - Procura empresa na planilha auxiliar" sap:VirtualizedContainerService.HintSize="434,300.6666666666667" sap2010:WorkflowViewState.IdRef="LookupDataTable_3" LookupColumnName="NOME DO CERTIFICADO" LookupValue="[nomeCertificadoParaIncluir]" RowIndex="[linhaASerAtualizada]" />
+                  <ui:UpdateRowItem ColumnIndex="{x:Null}" ColumnName="POSICAO DO CERTIFICADO" DisplayName="Update Row Item - Inclui posição do certificado na lista" sap:VirtualizedContainerService.HintSize="434,198" sap2010:WorkflowViewState.IdRef="UpdateRowItem_3" Row="[in_dt_certificados(linhaASerAtualizada)]" Value="[posicaoCertificado]" />
+                  <Assign DisplayName="Assign - incrementa o valor do idx" sap:VirtualizedContainerService.HintSize="434,85.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_13">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[indexIdx]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[indexIdx + 1]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </ui:InterruptibleWhile.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InterruptibleWhile>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" ContentHash="2M80w42Avk2TM9g5eoDoUA" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAP9SURBVEhL7dFvTFV1GAfw52K9qDXfNGvVm7amcs49v3MYQhh6Qcvkz+I2iDKdiIHWpEQRjCsofwUhEAVRCRIVLgiIoQKySCmDSgpeOAUuf+4f7r3SfNXWaq0hPj3nnnPhgLTWetXWd/vsOb/f9nue8zsH/s8/Smi1ZZ5/kymz5DEvSuORZzbW25Iim5ypZJ9GasSFyY/CGhwvhDc66LAf/GT201ENIalk3wJpZLPaWok6YOmrteNfbDg3gY84b8WwBnv2jos/QvO53fKQN4iT4CIsdINwtbWS4JNDEFI1LIsOOT30G8H5hvG1M2Pjr9fZlt+v4yPv1UtOgouw3DNLBqoAr5QMzJJjqLwje2ptxe2OteW3UWuN7MTdmeSa5g73WdHuPiuhi3ir+mxxn5cMrloJ3OqAx7UDgksHlYGlg1GrSwZ+JagVVDKIMeXd+EN1GLprGDprJCKqVRpxfSYZaA1UPf2ADgEd8lRvXi7qh6Ci/icDC29dDiz4Hr0CvAr7seh4Lk6eYkRUnBZHJqtEg+OUCM4qUe1ECcjpneWNf24f+NN6VW5fxKqc3l8Iavnn9GHE4XbsO74RJysEdFSII44T1LxcBEclU7uoWWyAHP9DNyEwq/cJv8yeVv2BL1Fvmo8zXceDeZloK5NGHMeYwV4mgv2Y5s3/LvFZJ2FlWhdI6dcCVqS15y9PvXqYyFWRdjU/3FSb03MkIijE1Ab2krnmLLVr1qKxlzPoXf0SXVeMdH/K6qdqBPNU9Zz7NZy566ixwZhZF1WUmwLc3m71pBKW3AlsT6dO3NPpo27NxX5UhLFLHNCVo+jKLvquqOUsZ9hXvB43pVWgPv36d/qMr5YJphvqaSVsd4dsCUvueEzdUmL7RISJMyvBViIabaWii6CWo1TAb/LWYWxSGfK72lFI7pzW7+/eqacBemrqjTKg3VNnYz3C4Oee9WAtEo3WYtFFUMteLODNrFCMTShGLrENhQ8ue1Djfv3ea8/q6bP8ZSYKGExfobcvYEZrIXMR1LIVCvh1RuhMbFwhcnEtyO+4hPpEBb/z8wf8ritJ/IftwL/fBtx7Fz14FYznMpi54QcTecw4kc9cBLXG82hINn8nJSGlktvU+Acdwkcktg5wCa3PeRpvb/EhOtqXLQHEDfIQI3ETnCeb4WiGMGzN4INffKf1aW5b87dcfAty8c0LzZBkagx8fLOOUKVnWsPYQfb26AHBTh6SaY2ZUZMwNJourLmbIoIQ1whcXNN28jt5QKY1HpJBbmvT8wR8tzTofN+tk9GAQ2yd5WPhLct+IXqBGGquv8VWwHgOA27rBdlSEkliSPQCb5Jl8gBuS4OP72azjt9G/+A/HoA/AU5v9XOxEOFnAAAAAElFTkSuQmCC" InformativeScreenshot="fc3fd90c2156857faf001075e1432a80.jpg" Reference="c3IFq2anMkWIChe0d_xZjA/M4Q8E4QEXUCVI0y9KUGSkQ" Selector="&lt;html app='chrome.exe' title='PortalCns' /&gt;" Title="PortalCns" Url="[urlSiteCaixa]" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+    <ui:LogMessage DisplayName="Log Message - Posição do certificado recuperada" sap:VirtualizedContainerService.HintSize="606,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;[FIM] RecuperarPosicaoCertificados: Posição dos certificados recuperada&quot;]" />
+  </Sequence>
+</Activity>

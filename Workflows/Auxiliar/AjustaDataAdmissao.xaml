@@ -1,0 +1,767 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="AjustaDataAdmissao" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_input_python" Type="OutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1410.4,4484.8</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>AjustaDataAdmissao_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>System.Globalization</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Python</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="AjustaDataAdmissao" sap:VirtualizedContainerService.HintSize="822.4,4420" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_Carga" />
+      <Variable x:TypeArguments="x:String" Name="dataTexto" />
+      <Variable x:TypeArguments="s:DateTime" Name="dataAjustada" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="760,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;[INICIO] Ajustando Data de Admissão&quot;]" />
+    <ui:ForEachFileX DisplayName="For Each File in Folder - Adicionando dias" Filter="*.xlsx" Folder="Data\Temp" sap:VirtualizedContainerService.HintSize="760,3758.4" sap2010:WorkflowViewState.IdRef="ForEachFileX_4" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+      <ui:ForEachFileX.Body>
+        <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
+          <ActivityAction.Argument1>
+            <DelegateInArgument x:TypeArguments="si:FileInfo" Name="CurrentFile" />
+          </ActivityAction.Argument1>
+          <ActivityAction.Argument2>
+            <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
+          </ActivityAction.Argument2>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="726.4,3495.2" sap2010:WorkflowViewState.IdRef="Sequence_29">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="nome_sem_extencao" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="664,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_18" Message="[&quot;Lendo o arquivo &quot; + CurrentFile.Name]" />
+            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="664,319.2" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+              <TryCatch.Try>
+                <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_Carga]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ReadRange_4" PreserveFormat="True" SheetName="Página1" WorkbookPath="[CurrentFile.FullName]" />
+              </TryCatch.Try>
+              <TryCatch.Catches>
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ActivityAction x:TypeArguments="s:Exception">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                    </ActivityAction.Argument>
+                    <ui:Continue sap:VirtualizedContainerService.HintSize="334.4,24.8" sap2010:WorkflowViewState.IdRef="Continue_3" />
+                  </ActivityAction>
+                </Catch>
+              </TryCatch.Catches>
+            </TryCatch>
+            <If Condition="[dt_Carga.Columns.Contains(&quot;DATA DE ADMISSAO&quot;)]" sap:VirtualizedContainerService.HintSize="664,2442.4" sap2010:WorkflowViewState.IdRef="If_9">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="630.4,2027.2" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_Carga]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="587.2,1937.6" sap2010:WorkflowViewState.IdRef="ForEachRow_5">
+                    <ui:ForEachRow.Body>
+                      <ActivityAction x:TypeArguments="sd:DataRow">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="553.6,1749.6" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510.4,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Nome: &quot; + CurrentRow(&quot;NOME&quot;).ToString + &quot; | Data original: &quot; + CurrentRow(&quot;DATA DE ADMISSAO&quot;).ToString]" />
+                          <If Condition="[CurrentRow(&quot;DATA DE ADMISSAO&quot;).GetType.ToString = &quot;System.DateTime&quot;]" sap:VirtualizedContainerService.HintSize="510.4,1477.6" sap2010:WorkflowViewState.IdRef="If_10">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If.Then>
+                              <Sequence sap:VirtualizedContainerService.HintSize="476.8,708" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_12">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[dataTexto]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(CurrentRow("DATA DE ADMISSAO").ToString().Split(" "c)(0), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture).AddDays(1).ToString("dd/MM/yyyy")]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_13">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="s:DateTime">[dataAjustada]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(dataTexto, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <ui:UpdateRowItem ColumnIndex="{x:Null}" ColumnName="DATA DE ADMISSAO" DisplayName="Update Row Item" sap:VirtualizedContainerService.HintSize="433.6,192.8" sap2010:WorkflowViewState.IdRef="UpdateRowItem_6" Row="[CurrentRow]" Value="[dataAjustada]" />
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Nome: &quot; + CurrentRow(&quot;NOME&quot;).ToString + &quot; | Nova data (data): &quot; + CurrentRow(&quot;DATA DE ADMISSAO&quot;).ToString]" />
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence sap:VirtualizedContainerService.HintSize="476.8,586.4" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_14">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[dataTexto]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(CurrentRow("DATA DE ADMISSAO").ToString().Split(" "c)(0), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture).AddDays(1).ToString("dd/MM/yyyy")]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <ui:UpdateRowItem ColumnIndex="{x:Null}" ColumnName="DATA DE ADMISSAO" DisplayName="Update Row Item" sap:VirtualizedContainerService.HintSize="433.6,192.8" sap2010:WorkflowViewState.IdRef="UpdateRowItem_7" Row="[CurrentRow]" Value="[dataTexto]" />
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Nome: &quot; + CurrentRow(&quot;NOME&quot;).ToString + &quot; | Nova data (texto): &quot; + CurrentRow(&quot;DATA DE ADMISSAO&quot;).ToString]" />
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ForEachRow.Body>
+                  </ui:ForEachRow>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="377.6,232" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334.4,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Arquivo &quot; + CurrentFile.Name + &quot;não contem a coluna DATA DE ADMISSAO&quot;]" />
+                </Sequence>
+              </If.Else>
+            </If>
+            <Assign sap:VirtualizedContainerService.HintSize="664,81.6" sap2010:WorkflowViewState.IdRef="Assign_16">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[nome_sem_extencao]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[System.IO.Path.GetFileNameWithoutExtension(CurrentFile.Name)]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dt_Carga]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="664,116" sap2010:WorkflowViewState.IdRef="WriteRange_7" SheetName="Página1" WorkbookPath="[&quot;Data\Temp\&quot;+nome_sem_extencao+&quot;_python.xlsx&quot;]" />
+            <Assign sap:VirtualizedContainerService.HintSize="664,81.6" sap2010:WorkflowViewState.IdRef="Assign_15">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[out_input_python]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">["Data\Temp\"+nome_sem_extencao+"_python.xlsx"]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachFileX.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEachFileX>
+    <ui:CommentOut sap2010:Annotation.AnnotationText="Ajuste de inclusão ou remoção de um dia no arquivo&#xA;&#xA;Mantido para validação" DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="760,144.8" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_30">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:IfElseIf sap2010:Annotation.AnnotationText="" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="872.8,4948.8" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
+            <ui:IfElseIf.ConditionBlocks>
+              <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                <ui:IfElseIfBlock BlockType="If" Condition="[in_operacao.Equals(&quot;Adicionar&quot;)]">
+                  <ui:IfElseIfBlock.Then>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,193.6" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:ForEachFileX DisplayName="For Each File in Folder - Adicionando dias" Filter="*.xlsx" Folder="Data\Temp" sap:VirtualizedContainerService.HintSize="387.2,81.6" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+                        <ui:ForEachFileX.Body>
+                          <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
+                            <ActivityAction.Argument1>
+                              <DelegateInArgument x:TypeArguments="si:FileInfo" Name="CurrentFile" />
+                            </ActivityAction.Argument1>
+                            <ActivityAction.Argument2>
+                              <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
+                            </ActivityAction.Argument2>
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="726.4,3588" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="664,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_4" Message="[&quot;Lendo o arquivo &quot; + CurrentFile.Name]" />
+                              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="664,319.2" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                                <TryCatch.Try>
+                                  <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_Carga]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" PreserveFormat="True" SheetName="Página1" WorkbookPath="[CurrentFile.FullName]" />
+                                </TryCatch.Try>
+                                <TryCatch.Catches>
+                                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="403.2,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ActivityAction x:TypeArguments="s:Exception">
+                                      <ActivityAction.Argument>
+                                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                      </ActivityAction.Argument>
+                                      <ui:Continue sap:VirtualizedContainerService.HintSize="334.4,24.8" sap2010:WorkflowViewState.IdRef="Continue_1" />
+                                    </ActivityAction>
+                                  </Catch>
+                                </TryCatch.Catches>
+                              </TryCatch>
+                              <If Condition="[dt_Carga.Columns.Contains(&quot;DATA DE ADMISSAO&quot;)]" sap:VirtualizedContainerService.HintSize="664,2934.4" sap2010:WorkflowViewState.IdRef="If_5">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="630.4,2519.2" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_Carga]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="587.2,2429.6" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                                      <ui:ForEachRow.Body>
+                                        <ActivityAction x:TypeArguments="sd:DataRow">
+                                          <ActivityAction.Argument>
+                                            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                                          </ActivityAction.Argument>
+                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="553.6,2241.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510.4,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[CurrentRow(&quot;DATA DE ADMISSAO&quot;).GetType.ToString]" />
+                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510.4,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[CurrentRow(&quot;DATA DE ADMISSAO&quot;).ToString]" />
+                                            <If Condition="[CurrentRow(&quot;DATA DE ADMISSAO&quot;).GetType.ToString = &quot;System.DateTime&quot;]" sap:VirtualizedContainerService.HintSize="510.4,1787.2" sap2010:WorkflowViewState.IdRef="If_6">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <If.Then>
+                                                <Sequence sap:VirtualizedContainerService.HintSize="476.8,862.4" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_5" Message="[&quot;Incrementando a data em 1 dia - O valor está como Datetime&quot;]">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:LogMessage>
+                                                  <Assign sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[dataTexto]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(CurrentRow("DATA DE ADMISSAO").ToString().Split(" "c)(0), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture).AddDays(1).ToString("dd/MM/yyyy")]</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <Assign sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="s:DateTime">[dataAjustada]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(dataTexto, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <ui:UpdateRowItem ColumnIndex="{x:Null}" ColumnName="DATA DE ADMISSAO" DisplayName="Update Row Item" sap:VirtualizedContainerService.HintSize="433.6,192.8" sap2010:WorkflowViewState.IdRef="UpdateRowItem_1" Row="[CurrentRow]" Value="[dataAjustada]" />
+                                                  <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dt_Carga]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="433.6,116" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Página1" WorkbookPath="[CurrentFile.FullName]" />
+                                                </Sequence>
+                                              </If.Then>
+                                              <If.Else>
+                                                <Sequence sap:VirtualizedContainerService.HintSize="476.8,741.6" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_11" Message="[&quot;Incrementando a data em 1 dia - O valor está como String&quot;]">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:LogMessage>
+                                                  <Assign sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_8">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[dataTexto]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(CurrentRow("DATA DE ADMISSAO").ToString().Split(" "c)(0), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture).AddDays(1).ToString("dd/MM/yyyy")]</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <ui:UpdateRowItem ColumnIndex="{x:Null}" ColumnName="DATA DE ADMISSAO" DisplayName="Update Row Item" sap:VirtualizedContainerService.HintSize="433.6,192.8" sap2010:WorkflowViewState.IdRef="UpdateRowItem_3" Row="[CurrentRow]" Value="[dataTexto]" />
+                                                  <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dt_Carga]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="433.6,116" sap2010:WorkflowViewState.IdRef="WriteRange_4" SheetName="Página1" WorkbookPath="[CurrentFile.FullName]" />
+                                                </Sequence>
+                                              </If.Else>
+                                            </If>
+                                          </Sequence>
+                                        </ActivityAction>
+                                      </ui:ForEachRow.Body>
+                                    </ui:ForEachRow>
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="377.6,232" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334.4,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Arquivo &quot; + CurrentFile.Name + &quot;não contem a coluna DATA DE ADMISSAO&quot;]" />
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                            </Sequence>
+                          </ActivityAction>
+                        </ui:ForEachFileX.Body>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:ForEachFileX>
+                    </Sequence>
+                  </ui:IfElseIfBlock.Then>
+                </ui:IfElseIfBlock>
+                <ui:IfElseIfBlock BlockType="ElseIf" Condition="[in_operacao.Equals(&quot;Remover&quot;)]">
+                  <ui:IfElseIfBlock.Then>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="822.4,4201.6" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:ForEachFileX DisplayName="For Each File in Folder - Removendo dias" Filter="*.xlsx" Folder="Data\Temp" sap:VirtualizedContainerService.HintSize="760,4089.6" sap2010:WorkflowViewState.IdRef="ForEachFileX_3" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+                        <ui:ForEachFileX.Body>
+                          <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
+                            <ActivityAction.Argument1>
+                              <DelegateInArgument x:TypeArguments="si:FileInfo" Name="CurrentFile" />
+                            </ActivityAction.Argument1>
+                            <ActivityAction.Argument2>
+                              <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
+                            </ActivityAction.Argument2>
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="726.4,3824.8" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="664,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_6" Message="[&quot;Lendo o arquivo &quot; + CurrentFile.Name]" />
+                              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="664,270.4" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                                <TryCatch.Try>
+                                  <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_Carga]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ReadRange_3" PreserveFormat="True" SheetName="Página1" WorkbookPath="[&quot;Data\Temp\&quot; + CurrentFile.Name]" />
+                                </TryCatch.Try>
+                                <TryCatch.Catches>
+                                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,105.6" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ActivityAction x:TypeArguments="s:Exception">
+                                      <ActivityAction.Argument>
+                                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                      </ActivityAction.Argument>
+                                      <ui:Continue sap:VirtualizedContainerService.HintSize="334.4,24.8" sap2010:WorkflowViewState.IdRef="Continue_2" />
+                                    </ActivityAction>
+                                  </Catch>
+                                </TryCatch.Catches>
+                              </TryCatch>
+                              <If Condition="[dt_Carga.Columns.Contains(&quot;DATA DE ADMISSAO&quot;)]" sap:VirtualizedContainerService.HintSize="664,2936.8" sap2010:WorkflowViewState.IdRef="If_7">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If.Then>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="630.4,2521.6" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_Carga]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="587.2,2432" sap2010:WorkflowViewState.IdRef="ForEachRow_4">
+                                      <ui:ForEachRow.Body>
+                                        <ActivityAction x:TypeArguments="sd:DataRow">
+                                          <ActivityAction.Argument>
+                                            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                                          </ActivityAction.Argument>
+                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="553.6,2244" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510.4,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[CurrentRow(&quot;DATA DE ADMISSAO&quot;).GetType.ToString]" />
+                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510.4,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[CurrentRow(&quot;DATA DE ADMISSAO&quot;).ToString]" />
+                                            <If Condition="[CurrentRow(&quot;DATA DE ADMISSAO&quot;).GetType.ToString = &quot;System.DateTime&quot;]" sap:VirtualizedContainerService.HintSize="510.4,1789.6" sap2010:WorkflowViewState.IdRef="If_8">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <If.Then>
+                                                <Sequence sap:VirtualizedContainerService.HintSize="476.8,864" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_15" Message="[&quot;Descrecendo a data em 1 dia - O valor está como Datetime&quot;]">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:LogMessage>
+                                                  <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_9">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[dataTexto]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(CurrentRow("DATA DE ADMISSAO").ToString().Split(" "c)(0), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture).AddDays(-1).ToString("dd/MM/yyyy")]</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_10">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="s:DateTime">[dataAjustada]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(dataTexto, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <ui:UpdateRowItem ColumnIndex="{x:Null}" ColumnName="DATA DE ADMISSAO" DisplayName="Update Row Item" sap:VirtualizedContainerService.HintSize="433.6,192.8" sap2010:WorkflowViewState.IdRef="UpdateRowItem_4" Row="[CurrentRow]" Value="[dataAjustada]" />
+                                                  <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dt_Carga]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="433.6,116" sap2010:WorkflowViewState.IdRef="WriteRange_5" SheetName="Página1" WorkbookPath="[CurrentFile.FullName]" />
+                                                </Sequence>
+                                              </If.Then>
+                                              <If.Else>
+                                                <Sequence sap:VirtualizedContainerService.HintSize="476.8,742.4" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_16" Message="[&quot;Decremento a data em 1 dia - O valor está como String&quot;]">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:LogMessage>
+                                                  <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_11">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[dataTexto]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(CurrentRow("DATA DE ADMISSAO").ToString().Split(" "c)(0), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture).AddDays(-1).ToString("dd/MM/yyyy")]</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <ui:UpdateRowItem ColumnIndex="{x:Null}" ColumnName="DATA DE ADMISSAO" DisplayName="Update Row Item" sap:VirtualizedContainerService.HintSize="433.6,192.8" sap2010:WorkflowViewState.IdRef="UpdateRowItem_5" Row="[CurrentRow]" Value="[dataTexto]" />
+                                                  <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dt_Carga]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="433.6,116" sap2010:WorkflowViewState.IdRef="WriteRange_6" SheetName="Página1" WorkbookPath="[CurrentFile.FullName]" />
+                                                </Sequence>
+                                              </If.Else>
+                                            </If>
+                                          </Sequence>
+                                        </ActivityAction>
+                                      </ui:ForEachRow.Body>
+                                    </ui:ForEachRow>
+                                  </Sequence>
+                                </If.Then>
+                                <If.Else>
+                                  <Sequence sap:VirtualizedContainerService.HintSize="377.6,232" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334.4,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Arquivo &quot; + CurrentFile.Name + &quot;não contem a coluna DATA DE ADMISSAO&quot;]" />
+                                  </Sequence>
+                                </If.Else>
+                              </If>
+                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="664,243.2" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                                <ui:CommentOut.Body>
+                                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="449.6,164.8" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <If Condition="[dt_Carga.Columns.Contains(&quot;DATA DE ADMISSAO&quot;)]" sap:VirtualizedContainerService.HintSize="387.2,52.8" sap2010:WorkflowViewState.IdRef="If_3">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <If.Then>
+                                        <Sequence sap:VirtualizedContainerService.HintSize="552,1135" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_Carga]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="510,1047" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+                                            <ui:ForEachRow.Body>
+                                              <ActivityAction x:TypeArguments="sd:DataRow">
+                                                <ActivityAction.Argument>
+                                                  <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                                                </ActivityAction.Argument>
+                                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,861" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_7" Message="[&quot;Removendo um dia a mais na linha &quot;]" />
+                                                  <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_6">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:String">[dataTexto]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">[DateTime.ParseExact(CurrentRow("DATA DE ADMISSAO").ToString().Split(" "c)(0), "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture).AddDays(-1).ToString("dd/MM/yyyy")]</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_7">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="s:DateTime">[dataAjustada]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(dataTexto, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <ui:UpdateRowItem ColumnIndex="{x:Null}" ColumnName="DATA DE ADMISSAO" DisplayName="Update Row Item" sap:VirtualizedContainerService.HintSize="434,192" sap2010:WorkflowViewState.IdRef="UpdateRowItem_2" Row="[CurrentRow]" Value="[dataAjustada]" />
+                                                  <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dt_Carga]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="Página1" WorkbookPath="[CurrentFile.FullName]" />
+                                                </Sequence>
+                                              </ActivityAction>
+                                            </ui:ForEachRow.Body>
+                                          </ui:ForEachRow>
+                                        </Sequence>
+                                      </If.Then>
+                                      <If.Else>
+                                        <Sequence sap:VirtualizedContainerService.HintSize="376,229" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Arquivo &quot; + CurrentFile.Name + &quot;não contem a coluna DATA DE ADMISSAO&quot;]" />
+                                        </Sequence>
+                                      </If.Else>
+                                    </If>
+                                  </Sequence>
+                                </ui:CommentOut.Body>
+                              </ui:CommentOut>
+                            </Sequence>
+                          </ActivityAction>
+                        </ui:ForEachFileX.Body>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:ForEachFileX>
+                    </Sequence>
+                  </ui:IfElseIfBlock.Then>
+                </ui:IfElseIfBlock>
+                <ui:IfElseIfBlock BlockType="Else">
+                  <ui:IfElseIfBlock.Then>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,164.8" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="387.2,52.8" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[&quot;Verifique o parametro passado na chamada desta sequência&quot;]">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:LogMessage>
+                    </Sequence>
+                  </ui:IfElseIfBlock.Then>
+                </ui:IfElseIfBlock>
+              </sc:BindingList>
+            </ui:IfElseIf.ConditionBlocks>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:IfElseIf>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="532.8,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;[FIM] Ajustando Data de Admissão&quot;]" />
+  </Sequence>
+</Activity>

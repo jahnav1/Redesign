@@ -1,0 +1,306 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="validacaoCertificadosDigitais" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:sscx="clr-namespace:System.Security.Cryptography.X509Certificates;assembly=System.Security.Cryptography.X509Certificates" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_dt_certificados" Type="InArgument(sd:DataTable)" />
+  </x:Members>
+  <this:validacaoCertificadosDigitais.in_dt_certificados>
+    <InArgument x:TypeArguments="sd:DataTable" />
+  </this:validacaoCertificadosDigitais.in_dt_certificados>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1794,4579</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>validacaoCertificadosDigitais_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Security.Cryptography.X509Certificates</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Management.Automation</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.GSuite</x:String>
+      <x:String>UiPath.Productivity.Services.Resolver</x:String>
+      <x:String>UiPath.GSuite.Activities.Enums</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.GSuite.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Activities.System.Collections</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Python</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Windows.Extensions</AssemblyReference>
+      <AssemblyReference>System.Security.Cryptography.X509Certificates</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Management.Automation</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Python.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ValidacaoCertificadosDigitais" sap:VirtualizedContainerService.HintSize="639,4514" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message - Iniciando validação certificados" sap:VirtualizedContainerService.HintSize="577,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;[INICIO] ValidacaoCertificadosDigitais: Iniciando validação dos certificados utilizados para acessar sistema da caixa&quot;]" />
+    <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="STATUS CERTIFICADO" DataTable="[in_dt_certificados]" DisplayName="Add Data Column - adiciona coluna com status do certificado" sap:VirtualizedContainerService.HintSize="577,186" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_1" />
+    <ui:AddDataColumn x:TypeArguments="x:Object" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="ALERTA CERTIFICADO" DataTable="[in_dt_certificados]" DisplayName="Add Data Column - adiciona coluna de alerta de certificado" sap:VirtualizedContainerService.HintSize="577,186" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" />
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[in_dt_certificados]" DisplayName="For Each Row in Data Table - Para cada certificado" sap:VirtualizedContainerService.HintSize="577,3589" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="certificado" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="543,3372" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="sco:Collection(sscx:X509Certificate2)" Name="psOutput" />
+              <Variable x:TypeArguments="x:String" Name="caminhoCertificado" />
+              <Variable x:TypeArguments="s:DateTime" Name="dataValidadeCertificado" />
+              <Variable x:TypeArguments="x:Int32" Name="diasParaExpirar" />
+              <Variable x:TypeArguments="x:Int32" Name="prazoAlerta" />
+              <Variable x:TypeArguments="x:String" Name="empresa" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="Assign - Recuperando empresa" sap:VirtualizedContainerService.HintSize="501,82" sap2010:WorkflowViewState.IdRef="Assign_12">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[empresa]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[certificado("EMPRESA").ToString]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="Assign - caminho certificado" sap:VirtualizedContainerService.HintSize="501,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[caminhoCertificado]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[certificado("CAMINHO DO CERTIFICADO").ToString]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="501,269" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,190" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokePowerShell x:TypeArguments="x:Object" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Seta política antes de executar script. Recomendação:&#xA;&#xA;https://forum.uipath.com/t/invoke-powershell-scripts-diabled-execution-policy/495929/3" CommandText="&#xD;&#xA;Param(&#xD;&#xA;[Parameter(Mandatory=$True)] [string]$caminhoCertificado&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;#Seta a política de execução do script para unrestrict&#xD;&#xA;Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope Process&#xD;&#xA;&#xD;&#xA;# Procura o certificado&#xD;&#xA;Get-ChildItem -Path $caminhoCertificado&#xD;&#xA;" DisplayName="Invoke Power Shell - procura certificado novo" sap:VirtualizedContainerService.HintSize="388,79" sap2010:WorkflowViewState.IdRef="InvokePowerShell`1_2" Output="[psOutput]">
+                    <ui:InvokePowerShell.PowerShellVariables>
+                      <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                    </ui:InvokePowerShell.PowerShellVariables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokePowerShell>
+                </Sequence>
+              </ui:CommentOut.Body>
+            </ui:CommentOut>
+            <ui:InvokePowerShell x:TypeArguments="sscx:X509Certificate2" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Seta política antes de executar script. Recomendação:&#xA;&#xA;https://forum.uipath.com/t/invoke-powershell-scripts-diabled-execution-policy/495929/3" CommandText="&#xD;&#xA;Param(&#xD;&#xA;[Parameter(Mandatory=$True)] [string]$caminhoCertificado&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;#Seta a política de execução do script para unrestrict&#xD;&#xA;Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope Process&#xD;&#xA;&#xD;&#xA;# Procura o certificado&#xD;&#xA;Get-ChildItem -Path $caminhoCertificado&#xD;&#xA;" DisplayName="Invoke Power Shell - procura certificado" sap:VirtualizedContainerService.HintSize="501,151" sap2010:WorkflowViewState.IdRef="InvokePowerShell`1_1" IsScript="True" Output="[psOutput]">
+              <ui:InvokePowerShell.Parameters>
+                <InArgument x:TypeArguments="x:String" x:Key="caminhoCertificado">[caminhoCertificado]</InArgument>
+              </ui:InvokePowerShell.Parameters>
+              <ui:InvokePowerShell.PowerShellVariables>
+                <scg:Dictionary x:TypeArguments="x:String, Argument" />
+              </ui:InvokePowerShell.PowerShellVariables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InvokePowerShell>
+            <Assign DisplayName="Assign - data de validade certificado" sap:VirtualizedContainerService.HintSize="501,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+              <Assign.To>
+                <OutArgument x:TypeArguments="s:DateTime">[dataValidadeCertificado]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="s:DateTime">[psOutput(0).NotAfter]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="Assign - Prazo em dias para vencimento do certificado" sap:VirtualizedContainerService.HintSize="501,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[diasParaExpirar]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">[dataValidadeCertificado.Subtract(datetime.Today).Days]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap2010:Annotation.AnnotationText="Prazo em dias para comunicar a área de negócios que o relatório está próximo ao vencimento" DisplayName="Assign - Prazo de alerta área de negócio" sap:VirtualizedContainerService.HintSize="501,124" sap2010:WorkflowViewState.IdRef="Assign_5">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[prazoAlerta]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">[CInt(in_config("prazoAlertaCertificadoDigital").ToString)]</InArgument>
+              </Assign.Value>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </Assign>
+            <ui:IfElseIf DisplayName="Else If - data de validade é maior que o dia atual " sap:VirtualizedContainerService.HintSize="501,2132" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
+              <ui:IfElseIf.ConditionBlocks>
+                <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                  <ui:IfElseIfBlock BlockType="If" Condition="[diasParaExpirar &gt; prazoAlerta]">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="Certificado digital válido (sem alerta de renovação)" sap:VirtualizedContainerService.HintSize="450,484" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message - certificado digital válido" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;certificado digital  da empresa &quot; + empresa + &quot; válido&quot;]" />
+                        <ui:UpdateRowItem ColumnIndex="{x:Null}" ColumnName="STATUS CERTIFICADO" DisplayName="Update Row Item - Atualizar coluna de status do certificado - certificado válido" sap:VirtualizedContainerService.HintSize="388,192" sap2010:WorkflowViewState.IdRef="UpdateRowItem_1" Row="[certificado]" Value="[&quot;VALIDO&quot;]" />
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[diasParaExpirar &lt; prazoAlerta And diasParaExpirar &gt; 0]">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="certificado digital válido (com alerta)" sap:VirtualizedContainerService.HintSize="450,716" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message - certificado digital válido ( com alerta)" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;certificado digital  da empresa &quot; + empresa + &quot; válido com vencimento próximo(&quot; + diasParaExpirar.ToString + &quot; dias)&quot;]" />
+                        <ui:UpdateRowItem ColumnIndex="{x:Null}" ColumnName="STATUS CERTIFICADO" DisplayName="Update Row Item - Atualizar coluna de status do certificado - certificado prox vencimento" sap:VirtualizedContainerService.HintSize="388,192" sap2010:WorkflowViewState.IdRef="UpdateRowItem_2" Row="[certificado]" Value="[&quot;VALIDO&quot;]" />
+                        <ui:UpdateRowItem ColumnIndex="{x:Null}" ColumnName="ALERTA CERTIFICADO" DisplayName="Update Row Item - Atualizar coluna de alerta de vencimento" sap:VirtualizedContainerService.HintSize="388,192" sap2010:WorkflowViewState.IdRef="UpdateRowItem_3" Row="[certificado]" Value="[&quot;Certificado próximo ao vencimento, verifique a necessidade de atualização e solicite ao CoE&quot;]" />
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[diasParaExpirar &lt;= 0]">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="Certificado invalido" sap:VirtualizedContainerService.HintSize="450,484" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message - certificado digital inválido" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;certificado digital  da empresa &quot; + empresa + &quot; inválido&quot;]" />
+                        <ui:UpdateRowItem ColumnIndex="{x:Null}" ColumnName="STATUS CERTIFICADO" DisplayName="Update Row Item - Atualizar coluna de status do certificado - certificado invalido" sap:VirtualizedContainerService.HintSize="388,192" sap2010:WorkflowViewState.IdRef="UpdateRowItem_4" Row="[certificado]" Value="[&quot;INVALIDO&quot;]" />
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                </sc:BindingList>
+              </ui:IfElseIf.ConditionBlocks>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:IfElseIf>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachRow.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEachRow>
+    <ui:LogMessage DisplayName="Log Message - Finalizando validação certificados" sap:VirtualizedContainerService.HintSize="577,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;[FIM] ValidacaoCertificadosDigitais: Validação dos certificados digitais finalizadas&quot;]" />
+  </Sequence>
+</Activity>
